@@ -1,0 +1,152 @@
+.thermometer-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.thermometer-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.thermometer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+.thermometer-header h2 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin: 0;
+}
+
+.sentiment-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.sentiment-badge.sentiment-positive {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.sentiment-badge.sentiment-negative {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.sentiment-badge.sentiment-neutral {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+
+.thermometer-body {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.thermometer-svg {
+  width: 150px;
+  height: 300px;
+  flex-shrink: 0;
+}
+
+.thermometer-info {
+  flex: 1;
+  text-align: center;
+}
+
+.score-display {
+  margin-bottom: 1rem;
+}
+
+.score-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.sentiment-description {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.thermometer-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e5e7eb;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .thermometer-card {
+    padding: 1.5rem;
+  }
+
+  .thermometer-body {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .thermometer-svg {
+    width: 120px;
+    height: 240px;
+  }
+
+  .thermometer-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .thermometer-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .score-value {
+    font-size: 2rem;
+  }
+}

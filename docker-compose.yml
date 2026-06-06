@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - FLASK_DEBUG=False
+      - PORT=5000
+      - DATABASE_TYPE=sqlite
+      - SENTIMENT_MODEL=simple
+    volumes:
+      - ./backend:/app
+      - ./data:/app/data
+    command: python app.py
+    networks:
+      - thermometer-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/api
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - thermometer-network
+
+networks:
+  thermometer-network:
+    driver: bridge
+
+volumes:
+  data:
